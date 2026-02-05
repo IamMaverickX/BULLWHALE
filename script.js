@@ -11,13 +11,12 @@ document.addEventListener('DOMContentLoaded', function() {
     initCopyButton();
     initJoinButton();
     initVideo();
+    initStreamFlow(); // ADD THIS LINE
     initIframes();
+    initSmoothScrolling();
     
     // Set current year in footer
     document.querySelector('.copyright').innerHTML = `© ${new Date().getFullYear()} Bullish Whale. All rights reserved.`;
-    
-    // Add smooth scrolling for all anchor links
-    initSmoothScrolling();
 });
 
 // Enhanced Navbar with parallax effect
@@ -76,6 +75,168 @@ function initNavbar() {
             }
         });
     });
+    // Enhanced video functionality
+function initVideo() {
+    const video = document.querySelector('.project-video');
+    const videoOverlay = document.getElementById('videoOverlay');
+    const playButton = document.getElementById('playButton');
+    
+    if (!video) return;
+    
+    // Set video attributes for better playback
+    video.muted = true;
+    video.playsInline = true;
+    video.loop = true;
+    video.preload = "auto";
+    
+    // Try to autoplay with sound muted
+    const playPromise = video.play();
+    
+    if (playPromise !== undefined) {
+        playPromise.then(() => {
+            // Autoplay succeeded, hide overlay
+            setTimeout(() => {
+                videoOverlay.classList.add('hidden');
+            }, 500);
+        }).catch(error => {
+            // Autoplay prevented, show overlay
+            console.log("Autoplay prevented, showing controls:", error);
+            video.controls = true;
+            video.muted = false; // Allow sound when user interacts
+            
+            // Make overlay clickable
+            videoOverlay.style.cursor = 'pointer';
+            videoOverlay.classList.remove('hidden');
+        });
+    }
+    
+    // Play button click handler
+    playButton.addEventListener('click', function(e) {
+        e.stopPropagation();
+        playVideo();
+    });
+    
+    // Overlay click handler
+    videoOverlay.addEventListener('click', playVideo);
+    
+    // Video click handler (toggle play/pause)
+    video.addEventListener('click', function(e) {
+        e.stopPropagation();
+        if (video.paused) {
+            video.play();
+        } else {
+            video.pause();
+        }
+    });
+    
+    // Play video function
+    function playVideo() {
+        video.muted = false; // Unmute when user interacts
+        video.play()
+            .then(() => {
+                videoOverlay.classList.add('hidden');
+                video.controls = true;
+            })
+            .catch(error => {
+                console.log("Play failed:", error);
+                video.controls = true;
+                videoOverlay.classList.remove('hidden');
+            });
+    }
+    
+    // Show overlay when video ends (for non-looping)
+    video.addEventListener('ended', () => {
+        if (!video.loop) {
+            videoOverlay.classList.remove('hidden');
+        }
+    });
+    
+    // Show overlay when video is paused by user
+    video.addEventListener('pause', () => {
+        if (video.paused && !video.ended) {
+            videoOverlay.classList.remove('hidden');
+            playButton.innerHTML = '<i class="fas fa-play"></i>';
+            videoOverlay.querySelector('p').textContent = 'Click to resume';
+        }
+    });
+    
+    // Hide overlay when video is playing
+    video.addEventListener('play', () => {
+        videoOverlay.classList.add('hidden');
+    });
+    
+    // Handle video loading
+    video.addEventListener('loadeddata', () => {
+        console.log("Video loaded successfully");
+        video.classList.add('loaded');
+    });
+    
+    video.addEventListener('error', (e) => {
+        console.error("Video error:", e);
+        videoOverlay.innerHTML = `
+            <div class="video-error">
+                <i class="fas fa-exclamation-triangle"></i>
+                <p>Video failed to load</p>
+                <p class="error-message">Please check the video file</p>
+            </div>
+        `;
+    });
+    
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+        if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+        
+        switch(e.key.toLowerCase()) {
+            case ' ':
+            case 'k':
+                e.preventDefault();
+                if (video.paused) {
+                    video.play();
+                } else {
+                    video.pause();
+                }
+                break;
+            case 'm':
+                e.preventDefault();
+                video.muted = !video.muted;
+                break;
+            case 'f':
+                e.preventDefault();
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) {
+                    video.webkitRequestFullscreen();
+                } else if (video.mozRequestFullScreen) {
+                    video.mozRequestFullScreen();
+                }
+                break;
+        }
+    });
+    
+    // Add video error styling
+    const style = document.createElement('style');
+    style.textContent = `
+        .video-error {
+            text-align: center;
+            color: #ff3232;
+        }
+        
+        .video-error i {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+        
+        .video-error p {
+            margin: 5px 0;
+        }
+        
+        .error-message {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+    `;
+    document.head.appendChild(style);
+}
 }
 
 // Enhanced smoke animation with more particles
@@ -360,7 +521,146 @@ function initTokenomicsCharts() {
         observer.observe(chart);
     });
 }
+// StreamFlow iframe handling
+function initStreamFlow() {
+    const streamflowContainer = document.getElementById('streamflowContainer');
+    const iframe = streamflowContainer.querySelector('.streamflow-iframe');
+    const fallback = streamflowContainer.querySelector('.widget-fallback');
+    
+    if (!iframe) return;
+    
+    // Create loading spinner
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'iframe-loading';
+    loadingDiv.innerHTML = `
+        <div class="loading-spinner"></div>
+        <p>Loading StreamFlow dashboard...</p>
+    `;
+    
+    // Hide fallback initially, show loading
+    if (fallback) fallback.style.display = 'none';
+    streamflowContainer.appendChild(loadingDiv);
+    
+    // Try to load iframe
+    iframe.style.display = 'block';
+    
+    // Set timeout to show fallback if iframe doesn't load
+    const loadTimeout = setTimeout(() => {
+        handleStreamFlowError(iframe);
+    }, 5000); // 5 second timeout
+    
+    // Clear timeout when iframe loads
+    iframe.addEventListener('load', function() {
+        clearTimeout(loadTimeout);
+        handleStreamFlowLoad(this);
+    });
+    
+    iframe.addEventListener('error', function() {
+        clearTimeout(loadTimeout);
+        handleStreamFlowError(this);
+    });
+}
 
+// Handle iframe load success
+function handleStreamFlowLoad(iframe) {
+    const container = iframe.parentElement;
+    const loading = container.querySelector('.iframe-loading');
+    const fallback = container.querySelector('.widget-fallback');
+    
+    // Remove loading and hide fallback
+    if (loading) loading.remove();
+    if (fallback) fallback.style.display = 'none';
+    
+    // Show iframe
+    iframe.style.display = 'block';
+    iframe.classList.add('loaded');
+    
+    console.log('StreamFlow dashboard loaded successfully');
+}
+
+// Handle iframe load error
+function handleStreamFlowError(iframe) {
+    const container = iframe.parentElement;
+    const loading = container.querySelector('.iframe-loading');
+    const fallback = container.querySelector('.widget-fallback');
+    
+    // Remove loading and show fallback
+    if (loading) loading.remove();
+    if (fallback) fallback.style.display = 'flex';
+    
+    // Hide iframe
+    iframe.style.display = 'none';
+    
+    console.log('StreamFlow dashboard failed to load, showing fallback');
+    
+    // Add retry button to fallback
+    const retryBtn = document.createElement('button');
+    retryBtn.className = 'retry-btn';
+    retryBtn.innerHTML = '<i class="fas fa-redo"></i> Retry Loading Dashboard';
+    retryBtn.onclick = function() {
+        retryStreamFlow(iframe);
+    };
+    
+    const fallbackContent = fallback.querySelector('.fallback-content');
+    if (fallbackContent && !fallbackContent.querySelector('.retry-btn')) {
+        fallbackContent.appendChild(retryBtn);
+    }
+}
+
+// Retry loading StreamFlow
+function retryStreamFlow(iframe) {
+    const container = iframe.parentElement;
+    const fallback = container.querySelector('.widget-fallback');
+    
+    // Show loading, hide fallback
+    if (fallback) fallback.style.display = 'none';
+    
+    const loadingDiv = document.createElement('div');
+    loadingDiv.className = 'iframe-loading';
+    loadingDiv.innerHTML = `
+        <div class="loading-spinner"></div>
+        <p>Retrying to load StreamFlow dashboard...</p>
+    `;
+    container.appendChild(loadingDiv);
+    
+    // Reload iframe with cache busting
+    const newSrc = iframe.src + (iframe.src.includes('?') ? '&' : '?') + 't=' + Date.now();
+    iframe.src = newSrc;
+    iframe.style.display = 'block';
+    
+    // Set timeout again
+    const loadTimeout = setTimeout(() => {
+        handleStreamFlowError(iframe);
+    }, 5000);
+    
+    iframe.onload = function() {
+        clearTimeout(loadTimeout);
+        handleStreamFlowLoad(this);
+    };
+    
+    iframe.onerror = function() {
+        clearTimeout(loadTimeout);
+        handleStreamFlowError(this);
+    };
+}
+
+// Alternative: Use StreamFlow API if available
+async function fetchStreamFlowData() {
+    try {
+        // Note: StreamFlow may not have a public API, but you could use a proxy
+        const response = await fetch('https://api.streamflow.finance/public/token/locks?token=6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump');
+        
+        if (!response.ok) {
+            throw new Error('API not available');
+        }
+        
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.log('StreamFlow API not available:', error);
+        return null;
+    }
+}
 // Initialize video with autoplay
 function initVideo() {
     const video = document.querySelector('.project-video');
