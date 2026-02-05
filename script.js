@@ -3,7 +3,6 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all components
     initNavbar();
-    initSmokeAnimation();
     initParticles();
     initScrollAnimations();
     initTokenomicsCharts();
@@ -65,99 +64,6 @@ function initNavbar() {
         });
     });
 }
-
-// Smoke animation from character's mouth
-function initSmokeAnimation() {
-    const canvas = document.getElementById('smokeCanvas');
-    const ctx = canvas.getContext('2d');
-    
-    // Set canvas size to match container
-    const container = document.querySelector('.character-container');
-    
-    function setCanvasSize() {
-        if (container) {
-            canvas.width = container.offsetWidth;
-            canvas.height = container.offsetHeight;
-        }
-    }
-    
-    setCanvasSize();
-    
-    // Smoke particles array
-    const particles = [];
-    const particleCount = 30;
-    
-    // Particle class
-    class Particle {
-        constructor() {
-            this.reset();
-            this.x = canvas.width * 0.5;
-            this.y = canvas.height * 0.6;
-        }
-        
-        reset() {
-            this.x = canvas.width * 0.5;
-            this.y = canvas.height * 0.6;
-            this.size = Math.random() * 15 + 8;
-            this.speedX = Math.random() * 1 - 0.5;
-            this.speedY = Math.random() * 0.8 + 0.3;
-            this.opacity = Math.random() * 0.6 + 0.3;
-            this.life = 1;
-            this.decay = Math.random() * 0.015 + 0.005;
-            this.wobble = Math.random() * 0.8;
-            this.wobbleSpeed = Math.random() * 0.03 + 0.02;
-            this.wobbleOffset = Math.random() * Math.PI * 2;
-            this.colorVariation = Math.random() * 0.3;
-        }
-        
-        update() {
-            this.speedX += (Math.random() - 0.5) * 0.05;
-            this.speedX = Math.max(Math.min(this.speedX, 1), -1);
-            
-            this.x += this.speedX + Math.sin(this.wobbleOffset + Date.now() * this.wobbleSpeed * 0.001) * this.wobble;
-            this.y -= this.speedY;
-            this.life -= this.decay;
-            this.opacity = this.life * 0.8;
-            this.size *= 0.995;
-            
-            if (this.life <= 0 || this.y < -this.size || this.x < -this.size || this.x > canvas.width + this.size) {
-                this.reset();
-            }
-        }
-        
-        draw() {
-            ctx.save();
-            
-            // Create gradient for smoke
-            const gradient = ctx.createRadialGradient(
-                this.x, this.y, 0,
-                this.x, this.y, this.size
-            );
-            
-            const r = 0 + this.colorVariation * 255;
-            const g = 255;
-            const b = 157 - this.colorVariation * 100;
-            
-            gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${this.opacity})`);
-            gradient.addColorStop(0.5, `rgba(${r * 0.8}, ${g * 0.9}, ${b}, ${this.opacity * 0.6})`);
-            gradient.addColorStop(1, `rgba(${r * 0.5}, ${g * 0.7}, ${b}, 0)`);
-            
-            ctx.fillStyle = gradient;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-            ctx.closePath();
-            ctx.fill();
-            
-            // Add secondary glow
-            ctx.globalAlpha = this.opacity * 0.2;
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2);
-            ctx.closePath();
-            ctx.fill();
-            
-            ctx.restore();
-        }
-    }
     
     // Initialize particles
     for (let i = 0; i < particleCount; i++) {
