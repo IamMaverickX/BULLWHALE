@@ -128,7 +128,7 @@ p {
 .logo-text {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
-    font-size: 2.0rem;
+    font-size: 2rem;
     color: var(--primary-accent);
     text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
 }
@@ -264,17 +264,6 @@ p {
     75% { 
         transform: translateY(-15px) rotate(0.3deg); 
     }
-}
-
-.smoke-canvas {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 1;
 }
 
 .scroll-indicator {
@@ -1438,7 +1427,7 @@ p {
 .footer-logo-text {
     font-family: 'Orbitron', sans-serif;
     font-weight: 700;
-    font-size: 2.0rem;
+    font-size: 2rem;
     color: var(--primary-accent);
 }
 
@@ -1702,21 +1691,6 @@ p {
     }
 }
 
-/* Enhanced smoke animation */
-@keyframes smokeRise {
-    0% {
-        opacity: 0;
-        transform: translateY(0) scale(0.5);
-    }
-    10% {
-        opacity: 0.8;
-    }
-    100% {
-        opacity: 0;
-        transform: translateY(-100px) scale(1.5);
-    }
-}
-
 /* Smooth scroll behavior */
 html {
     scroll-behavior: smooth;
@@ -1780,6 +1754,15 @@ html {
     
     .hero-title {
         font-size: 2.5rem;
+    }
+    
+    .logo-img {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .logo-text {
+        font-size: 1.6rem;
     }
     
     .nav-menu {
@@ -1848,6 +1831,15 @@ html {
         grid-template-columns: 1fr;
         gap: 20px;
     }
+    
+    .footer-logo-img {
+        height: 40px;
+        width: 40px;
+    }
+    
+    .footer-logo-text {
+        font-size: 1.6rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -1861,6 +1853,15 @@ html {
     
     .join-text h3 {
         font-size: 2rem;
+    }
+    
+    .logo-img {
+        height: 35px;
+        width: 35px;
+    }
+    
+    .logo-text {
+        font-size: 1.4rem;
     }
     
     .social-links {
@@ -1900,51 +1901,13 @@ html {
     .lock-note i {
         margin: 0 auto 10px;
     }
-    }
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2.5rem;
-    }
     
-    h2 {
-        font-size: 2rem;
-    }
-    
-    .hero-title {
-        font-size: 2.5rem;
-    }
-    
-    .logo-img {
-        height: 40px; /* Slightly smaller on mobile */
-        width: 40px;
-    }
-    
-    .logo-text {
-        font-size: 1.6rem; /* Slightly smaller on mobile */
-    }
-    
-    .nav-menu {
-        display: none;
-    }
-    /* ... rest of the code ... */
-}
-@media (max-width: 480px) {
-    .hero-title {
-        font-size: 2rem;
-    }
-    
-    .section-title {
-        font-size: 1.8rem;
-    }
-    
-    .logo-img {
-        height: 35px; /* Even smaller on very small screens */
+    .footer-logo-img {
+        height: 35px;
         width: 35px;
     }
     
-    .logo-text {
-        font-size: 1.4rem; /* Even smaller on very small screens */
+    .footer-logo-text {
+        font-size: 1.4rem;
     }
-    
-    /* ... rest of the code ... */
-}
+        }
