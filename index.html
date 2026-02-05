@@ -265,73 +265,127 @@
         </div>
     </section>
 
-    <!-- Token Lock Details Section -->
-    <section class="section streamflow-section">
-        <div class="container">
-            <h2 class="section-title">Token Lock Details</h2>
-            <p class="section-subtitle">Live tracking of locked tokens and unlock schedule</p>
-            
-            <div class="streamflow-widget">
-                <div class="widget-header">
+ <!-- Token Lock Details Section -->
+<section class="section lock-details-section">
+    <div class="container">
+        <h2 class="section-title">Token Lock Details</h2>
+        <p class="section-subtitle">Transparent tracking of locked tokens and unlock schedule</p>
+        
+        <div class="lock-info-container">
+            <div class="lock-info-card">
+                <div class="lock-card-header">
                     <i class="fas fa-lock"></i>
                     <h3>Token Lock Information</h3>
                 </div>
-                <div class="widget-container" id="streamflowContainer">
-                    <div class="widget-fallback">
-                        <div class="fallback-content">
-                            <i class="fas fa-chart-bar"></i>
-                            <h4>Token Lock Dashboard</h4>
-                            <div class="lock-stats">
-                                <div class="stat-item">
-                                    <div class="stat-label">Locked Tokens</div>
-                                    <div class="stat-value">~461M</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-label">Circulating</div>
-                                    <div class="stat-value">~535M</div>
-                                </div>
-                                <div class="stat-item">
-                                    <div class="stat-label">Total Supply</div>
-                                    <div class="stat-value">1B</div>
-                                </div>
-                            </div>
-                            
-                            <div class="upcoming-unlocks">
-                                <h5>Upcoming Unlocks</h5>
-                                <div class="unlock-item">
-                                    <div class="unlock-date">Feb 8, 2026</div>
-                                    <div class="unlock-amount">180M tokens</div>
-                                </div>
-                                <div class="unlock-item">
-                                    <div class="unlock-date">Feb 28, 2026</div>
-                                    <div class="unlock-amount">30M tokens</div>
-                                </div>
-                                <div class="unlock-item">
-                                    <div class="unlock-date">Dec 31, 2026</div>
-                                    <div class="unlock-amount">20M tokens</div>
-                                </div>
-                                <div class="unlock-item">
-                                    <div class="unlock-date">Jan 1, 2027</div>
-                                    <div class="unlock-amount">231M tokens</div>
-                                </div>
-                            </div>
-                            
-                            <a href="https://app.streamflow.finance/token-dashboard/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" 
-                               target="_blank" 
-                               class="view-dashboard-btn">
-                                <i class="fas fa-external-link-alt"></i>
-                                View Full Dashboard on StreamFlow
-                            </a>
+                
+                <div class="lock-stats-grid">
+                    <div class="lock-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-coins"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">~461M</div>
+                            <div class="stat-label">Locked Tokens</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lock-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">~535M</div>
+                            <div class="stat-label">Circulating</div>
+                        </div>
+                    </div>
+                    
+                    <div class="lock-stat">
+                        <div class="stat-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <div class="stat-content">
+                            <div class="stat-value">1B</div>
+                            <div class="stat-label">Total Supply</div>
                         </div>
                     </div>
                 </div>
-                <div class="widget-footer">
-                    <p>Live data from <a href="https://app.streamflow.finance/token-dashboard/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" target="_blank">StreamFlow Finance</a></p>
+                
+                <div class="lock-schedule">
+                    <h4>Unlock Schedule</h4>
+                    <div class="schedule-timeline">
+                        <div class="schedule-phase">
+                            <div class="phase-header">
+                                <div class="phase-indicator past"></div>
+                                <div class="phase-title">Already Unlocked</div>
+                                <div class="phase-amount">336.59M tokens</div>
+                            </div>
+                            <div class="phase-dates">
+                                <div class="date-item">
+                                    <span class="date">Jan 11, 2026</span>
+                                    <span class="amount">21M</span>
+                                </div>
+                                <div class="date-item">
+                                    <span class="date">Jan 25, 2026</span>
+                                    <span class="amount">20M</span>
+                                </div>
+                                <div class="date-item">
+                                    <span class="date">Jan 26, 2026</span>
+                                    <span class="amount">100M</span>
+                                </div>
+                                <div class="date-item">
+                                    <span class="date">Jan 27, 2026</span>
+                                    <span class="amount">39M</span>
+                                </div>
+                                <div class="date-item">
+                                    <span class="date">Feb 1, 2026</span>
+                                    <span class="amount">156.59M</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="schedule-phase">
+                            <div class="phase-header">
+                                <div class="phase-indicator upcoming"></div>
+                                <div class="phase-title">Upcoming Unlocks</div>
+                                <div class="phase-amount">~461M tokens</div>
+                            </div>
+                            <div class="phase-dates">
+                                <div class="date-item">
+                                    <span class="date">Feb 8, 2026</span>
+                                    <span class="amount">180M</span>
+                                </div>
+                                <div class="date-item">
+                                    <span class="date">Feb 28, 2026</span>
+                                    <span class="amount">30M</span>
+                                </div>
+                                <div class="date-item">
+                                    <span class="date">Dec 31, 2026</span>
+                                    <span class="amount">20M</span>
+                                </div>
+                                <div class="date-item highlight">
+                                    <span class="date">Jan 1, 2027</span>
+                                    <span class="amount">231M</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                
+                <div class="lock-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p>Locked tokens support team payments and future development & ecosystem initiatives. Liquidity keys are burned for permanent security.</p>
+                </div>
+                
+                <a href="https://app.streamflow.finance/token-dashboard/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" 
+                   target="_blank" 
+                   class="external-link-btn">
+                    <i class="fas fa-external-link-alt"></i>
+                    View on StreamFlow Finance
+                </a>
             </div>
         </div>
-    </section>
-
+    </div>
+</section>
     <!-- Live Chart Section -->
     <section class="section chart-section">
         <div class="container">
