@@ -64,44 +64,6 @@ function initNavbar() {
         });
     });
 }
-    
-    // Initialize particles
-    for (let i = 0; i < particleCount; i++) {
-        const particle = new Particle();
-        particle.life = Math.random() * 0.5;
-        particles.push(particle);
-    }
-    
-    // Animation loop
-    let lastTime = 0;
-    function animateSmoke(timestamp) {
-        if (!lastTime) lastTime = timestamp;
-        const deltaTime = timestamp - lastTime;
-        lastTime = timestamp;
-        
-        // Clear with fade effect for smoke trails
-        ctx.fillStyle = 'rgba(10, 14, 23, 0.05)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        
-        // Update and draw particles
-        particles.forEach(particle => {
-            particle.update();
-            particle.draw();
-        });
-        
-        requestAnimationFrame(animateSmoke);
-    }
-    
-    // Start animation
-    if (canvas.width > 0 && canvas.height > 0) {
-        animateSmoke();
-    }
-    
-    // Handle window resize
-    window.addEventListener('resize', function() {
-        setCanvasSize();
-    });
-}
 
 // Floating particles in background
 function initParticles() {
@@ -460,7 +422,7 @@ function initCopyButton() {
 function initJoinButton() {
     const joinButton = document.getElementById('joinButton');
     
-    joinButton.addEventListener('click', function() {
+    joinButton.addEventListener('click', function(e) {
         // Enhanced animation
         this.classList.add('clicked');
         
@@ -468,8 +430,8 @@ function initJoinButton() {
         const ripple = document.createElement('span');
         const rect = this.getBoundingClientRect();
         const size = Math.max(rect.width, rect.height);
-        const x = event.clientX - rect.left - size / 2;
-        const y = event.clientY - rect.top - size / 2;
+        const x = e.clientX - rect.left - size / 2;
+        const y = e.clientY - rect.top - size / 2;
         
         ripple.style.cssText = `
             position: absolute;
