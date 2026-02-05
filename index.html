@@ -68,38 +68,44 @@
     </section>
 
     <!-- About Section with Video -->
-    <section class="section about-section" id="about">
-        <div class="container">
-            <h2 class="section-title">About Bullwhale</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <h3>The Vision of Bullwhale: A Community-Driven Crypto Revolution</h3>
-                    <p>The story of Bullwhale features a unique blend of ambition, community spirit, and the decentralized ethos of cryptocurrencies.</p>
-                    
-                    <h4>The Genesis of Bullwhale</h4>
-                    <p>Inspired Individual: A determined, albeit rude, alcoholic had a realization. He wanted to create a cryptocurrency that was not just about profits but about empowering a community.</p>
-                    <p>Last Stand with Crypto: With just $25,000 left from his previous ventures, he saw an opportunity to invest in a new project that could resonate with the broader crypto community.</p>
-                    
-                    <h4>The Core Concept</h4>
-                    <p>Community-Driven Approach: Unlike typical cryptocurrencies that rely heavily on developers and centralized control, Bullwhale was envisioned as a coin driven entirely by its community. This meant that decisions would be made collectively rather than dictated by a small group of developers.</p>
-                    <p>Empowerment and Support: The goal was to support community members, encouraging participation, transparency, and collaboration.</p>
-                    
-                    <h4>Impact on the Crypto Market</h4>
-                    <p>Decentralization Trend: The success of Bullwhale propelled a movement towards more decentralized, community-oriented cryptocurrencies. Investors began seeking projects where the community had a significant voice.</p>
-                </div>
+<section class="section about-section" id="about">
+    <div class="container">
+        <h2 class="section-title">About Bullwhale</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>The Vision of Bullwhale: A Community-Driven Crypto Revolution</h3>
+                <p>The story of Bullwhale features a unique blend of ambition, community spirit, and the decentralized ethos of cryptocurrencies.</p>
                 
-                <div class="video-container">
-                    <h3 class="video-title">Bullwhale Introduction</h3>
-                    <div class="video-wrapper">
-                        <video class="project-video" controls poster="bullwhale.png">
-                            <source src="bullwhale.mp4" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
+                <h4>The Genesis of Bullwhale</h4>
+                <p>Inspired Individual: A determined, albeit rude, alcoholic had a realization. He wanted to create a cryptocurrency that was not just about profits but about empowering a community.</p>
+                <p>Last Stand with Crypto: With just $25,000 left from his previous ventures, he saw an opportunity to invest in a new project that could resonate with the broader crypto community.</p>
+                
+                <h4>The Core Concept</h4>
+                <p>Community-Driven Approach: Unlike typical cryptocurrencies that rely heavily on developers and centralized control, Bullwhale was envisioned as a coin driven entirely by its community. This meant that decisions would be made collectively rather than dictated by a small group of developers.</p>
+                <p>Empowerment and Support: The goal was to support community members, encouraging participation, transparency, and collaboration.</p>
+                
+                <h4>Impact on the Crypto Market</h4>
+                <p>Decentralization Trend: The success of Bullwhale propelled a movement towards more decentralized, community-oriented cryptocurrencies. Investors began seeking projects where the community had a significant voice.</p>
+            </div>
+            
+            <div class="video-container">
+                <h3 class="video-title">Bullwhale Introduction</h3>
+                <div class="video-wrapper">
+                    <video class="project-video" controls autoplay muted playsinline loop poster="bullwhale.png">
+                        <source src="bullwhale.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay" id="videoOverlay">
+                        <div class="play-button" id="playButton">
+                            <i class="fas fa-play"></i>
+                        </div>
+                        <p>Click to play video</p>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Roadmap Section -->
     <section class="section roadmap-section" id="roadmap">
@@ -278,16 +284,69 @@
                 <i class="fas fa-lock"></i>
                 <h3>StreamFlow Finance Dashboard</h3>
             </div>
-            <div class="widget-container">
+            <div class="widget-container" id="streamflowContainer">
+                <!-- Fallback content will be shown here -->
+                <div class="widget-fallback">
+                    <div class="fallback-content">
+                        <i class="fas fa-chart-bar"></i>
+                        <h4>Token Lock Details</h4>
+                        <div class="lock-stats">
+                            <div class="stat-item">
+                                <div class="stat-label">Locked Tokens</div>
+                                <div class="stat-value">~461M</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Circulating</div>
+                                <div class="stat-value">~535M</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-label">Total Supply</div>
+                                <div class="stat-value">1B</div>
+                            </div>
+                        </div>
+                        
+                        <div class="upcoming-unlocks">
+                            <h5>Upcoming Unlocks</h5>
+                            <div class="unlock-item">
+                                <div class="unlock-date">Feb 8, 2026</div>
+                                <div class="unlock-amount">180M tokens</div>
+                            </div>
+                            <div class="unlock-item">
+                                <div class="unlock-date">Feb 28, 2026</div>
+                                <div class="unlock-amount">30M tokens</div>
+                            </div>
+                            <div class="unlock-item">
+                                <div class="unlock-date">Dec 31, 2026</div>
+                                <div class="unlock-amount">20M tokens</div>
+                            </div>
+                            <div class="unlock-item">
+                                <div class="unlock-date">Jan 1, 2027</div>
+                                <div class="unlock-amount">231M tokens</div>
+                            </div>
+                        </div>
+                        
+                        <a href="https://app.streamflow.finance/token-dashboard/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" 
+                           target="_blank" 
+                           class="view-dashboard-btn">
+                            <i class="fas fa-external-link-alt"></i>
+                            View Full Dashboard on StreamFlow
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Iframe will be loaded here if allowed -->
                 <iframe 
                     src="https://app.streamflow.finance/embed/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" 
                     class="streamflow-iframe"
                     title="StreamFlow Token Dashboard"
                     scrolling="no"
+                    style="display: none;"
+                    onload="handleStreamFlowLoad(this)"
+                    onerror="handleStreamFlowError(this)"
                 ></iframe>
             </div>
             <div class="widget-footer">
-                <p>View full dashboard on <a href="https://app.streamflow.finance/token-dashboard/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" target="_blank">StreamFlow</a></p>
+                <p>Live data from <a href="https://app.streamflow.finance/token-dashboard/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" target="_blank">StreamFlow Finance</a></p>
             </div>
         </div>
     </div>
