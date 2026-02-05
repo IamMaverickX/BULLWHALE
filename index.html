@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bullish Whale - Community-Driven Crypto Revolution</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Floating particles background -->
+    <div class="particles-container" id="particles"></div>
+    
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="logo.png" alt="Bullish Whale Logo" class="logo-img">
+                <span class="logo-text">Bullish Whale</span>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link active">About</a></li>
+                <li><a href="#utility" class="nav-link">Utility</a></li>
+                <li><a href="#roadmap" class="nav-link">Roadmap</a></li>
+                <li><a href="#community" class="nav-link">Community</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
+            <div class="hero-left">
+                <div class="hero-label">About</div>
+                <h1 class="hero-title">
+                    A community-driven project<br>
+                    <span class="highlight">with upcoming utility</span>
+                </h1>
+                <p class="hero-description">
+                    The Bullwhale phenomenon not only changed the trajectory of its creator but also had a lasting impact on how cryptocurrencies are perceived. It challenged the notion that success in the crypto space required a strong technological base or a large team of developers, showing that passion and community can drive innovation.
+                </p>
+            </div>
+            
+            <div class="hero-right">
+                <div class="character-container">
+                    <img src="bullwhale.png" alt="Bullish Whale Character" class="character-img">
+                    <!-- Smoke animation will be drawn here with canvas -->
+                    <canvas id="smokeCanvas" class="smoke-canvas"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="mouse">
+                <div class="wheel"></div>
+            </div>
+            <div class="arrow">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section with Video -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <h2 class="section-title">About Bullwhale</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>The Vision of Bullwhale: A Community-Driven Crypto Revolution</h3>
+                    <p>The story of Bullwhale features a unique blend of ambition, community spirit, and the decentralized ethos of cryptocurrencies.</p>
+                    
+                    <h4>The Genesis of Bullwhale</h4>
+                    <p>Inspired Individual: A determined, albeit rude, alcoholic had a realization. He wanted to create a cryptocurrency that was not just about profits but about empowering a community.</p>
+                    <p>Last Stand with Crypto: With just $25,000 left from his previous ventures, he saw an opportunity to invest in a new project that could resonate with the broader crypto community.</p>
+                    
+                    <h4>The Core Concept</h4>
+                    <p>Community-Driven Approach: Unlike typical cryptocurrencies that rely heavily on developers and centralized control, Bullwhale was envisioned as a coin driven entirely by its community. This meant that decisions would be made collectively rather than dictated by a small group of developers.</p>
+                    <p>Empowerment and Support: The goal was to support community members, encouraging participation, transparency, and collaboration.</p>
+                    
+                    <h4>Impact on the Crypto Market</h4>
+                    <p>Decentralization Trend: The success of Bullwhale propelled a movement towards more decentralized, community-oriented cryptocurrencies. Investors began seeking projects where the community had a significant voice.</p>
+                </div>
+                
+                <div class="video-container">
+                    <h3 class="video-title">Bullwhale Introduction</h3>
+                    <div class="video-wrapper">
+                        <video class="project-video" controls poster="bullwhale.png">
+                            <source src="bullwhale.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="section roadmap-section" id="roadmap">
+        <div class="container">
+            <h2 class="section-title">Roadmap</h2>
+            <div class="timeline">
+                <!-- Timeline item 1 -->
+                <div class="timeline-item active">
+                    <div class="timeline-node">
+                        <div class="node-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <div class="node-date">Now</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Current Phase</h3>
+                        <ul class="timeline-list">
+                            <li>Add liquidity on Meteora</li>
+                            <li>List on CoinMarketCap & CoinGecko</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Timeline item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <div class="node-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="node-date">Next</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Next Phase</h3>
+                        <ul class="timeline-list">
+                            <li>CEX listing (after healthy market cap – no rush)</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Timeline item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-node">
+                        <div class="node-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="node-date">Future</div>
+                    </div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Future Vision</h3>
+                        <ul class="timeline-list">
+                            <li>Launch Bull Whale Swap (Solana tokens only)</li>
+                            <li>Strategic partnerships with top Solana projects</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Timeline connecting line -->
+                <div class="timeline-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tokenomics Section -->
+    <section class="section tokenomics-section" id="utility">
+        <div class="container">
+            <h2 class="section-title">Tokenomics</h2>
+            <p class="section-subtitle">As of February 5, 2026</p>
+            
+            <div class="tokenomics-overview">
+                <div class="tokenomics-item">
+                    <h3>Token Overview</h3>
+                    <ul class="tokenomics-list">
+                        <li><strong>Token:</strong> BullWhale (Solana memecoin, launched on pump.fun)</li>
+                        <li><strong>Total Supply:</strong> 1,000,000,000</li>
+                        <li><strong>Effective Supply (after burns):</strong> 996,000,000</li>
+                        <li><strong>Locked Tokens:</strong> ~461,000,000</li>
+                        <li><strong>Current Circulating Supply:</strong> ~535,000,000</li>
+                        <li><strong>Creator Fee:</strong> 0.05% per transaction</li>
+                        <li><strong>Liquidity:</strong> Keys burned – no removal possible (anti-rug)</li>
+                    </ul>
+                </div>
+                
+                <div class="charts-container">
+                    <div class="chart-wrapper">
+                        <div class="chart-container">
+                            <div class="circular-chart">
+                                <svg class="circle-chart" viewBox="0 0 36 36">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="70, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                </svg>
+                                <div class="chart-text">
+                                    <span class="chart-value">70%</span>
+                                    <span class="chart-label">Circulating</span>
+                                </div>
+                            </div>
+                            <div class="chart-title">Circulating Supply</div>
+                        </div>
+                    </div>
+                    
+                    <div class="chart-wrapper">
+                        <div class="chart-container">
+                            <div class="circular-chart">
+                                <svg class="circle-chart" viewBox="0 0 36 36">
+                                    <path class="circle-bg"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                    <path class="circle"
+                                        stroke-dasharray="30, 100"
+                                        d="M18 2.0845
+                                        a 15.9155 15.9155 0 0 1 0 31.831
+                                        a 15.9155 15.9155 0 0 1 0 -31.831"
+                                    />
+                                </svg>
+                                <div class="chart-text">
+                                    <span class="chart-value">30%</span>
+                                    <span class="chart-label">Locked</span>
+                                </div>
+                            </div>
+                            <div class="chart-title">Locked Tokens</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="unlock-schedule">
+                <h3>Unlock Schedule</h3>
+                <p class="schedule-note">Locked tokens support team payments and future development & ecosystem initiatives.</p>
+                
+                <div class="schedule-timeline">
+                    <div class="schedule-item past">
+                        <div class="schedule-date">Already Unlocked</div>
+                        <div class="schedule-amount">336.59M tokens</div>
+                        <div class="schedule-details">
+                            <div>Jan 11, 2026 – 21M</div>
+                            <div>Jan 25, 2026 – 20M</div>
+                            <div>Jan 26, 2026 – 100M</div>
+                            <div>Jan 27, 2026 – 39M</div>
+                            <div>Feb 1, 2026 – 156.59M</div>
+                        </div>
+                    </div>
+                    
+                    <div class="schedule-item upcoming">
+                        <div class="schedule-date">Upcoming Unlocks (~461M total)</div>
+                        <div class="schedule-amount">461M tokens</div>
+                        <div class="schedule-details">
+                            <div>Feb 8, 2026 – 180M (100M + 80M)</div>
+                            <div>Feb 28, 2026 – 30M</div>
+                            <div>Dec 31, 2026 – 20M</div>
+                            <div>Jan 1, 2027 – 231M</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- StreamFlow Widget Section -->
+    <section class="section streamflow-section">
+        <div class="container">
+            <h2 class="section-title">Token Lock Details</h2>
+            <p class="section-subtitle">Live tracking of locked tokens and unlock schedule</p>
+            
+            <div class="streamflow-widget">
+                <div class="widget-header">
+                    <i class="fas fa-lock"></i>
+                    <h3>StreamFlow Finance Dashboard</h3>
+                </div>
+                <div class="widget-container">
+                    <iframe 
+                        src="https://app.streamflow.finance/embed/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" 
+                        class="streamflow-iframe"
+                        title="StreamFlow Token Dashboard"
+                        scrolling="no"
+                    ></iframe>
+                </div>
+                <div class="widget-footer">
+                    <p>View full dashboard on <a href="https://app.streamflow.finance/token-dashboard/solana/mainnet/6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" target="_blank">StreamFlow</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Chart Section -->
+    <section class="section chart-section">
+        <div class="container">
+            <h2 class="section-title">Live Market Chart</h2>
+            <p class="section-subtitle">Real-time price and trading data from DexScreener</p>
+            
+            <div class="chart-widget">
+                <div class="chart-header">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>BullWhale (SOLANA)</h3>
+                </div>
+                <div class="chart-container-full">
+                    <iframe 
+                        src="https://dexscreener.com/solana/FsVzXAcXF6fU8xA9PEorLq3XCFzovDaSvrFhcRCNbbpi?embed=1&theme=dark&info=0"
+                        class="dexscreener-iframe"
+                        title="DexScreener Chart"
+                        scrolling="no"
+                    ></iframe>
+                </div>
+                <div class="chart-footer">
+                    <p>Live chart from <a href="https://dexscreener.com/solana/FsVzXAcXF6fU8xA9PEorLq3XCFzovDaSvrFhcRCNbbpi" target="_blank">DexScreener</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buy Tokens Section -->
+    <section class="section buy-section">
+        <div class="container">
+            <h2 class="section-title">Buy BullWhale Tokens</h2>
+            <p class="section-subtitle">Purchase directly through these trusted platforms</p>
+            
+            <div class="buy-buttons-container">
+                <a href="https://jup.ag/swap?sell=So11111111111111111111111111111111111111112&buy=6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump" 
+                   target="_blank" 
+                   class="buy-button jupiter-button">
+                    <div class="button-icon">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="button-content">
+                        <div class="button-title">Buy on Jupiter</div>
+                        <div class="button-subtitle">Best rates on Solana</div>
+                    </div>
+                    <div class="button-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                
+                <a href="https://join.pump.fun/HSag/8kjwcxb4" 
+                   target="_blank" 
+                   class="buy-button pumpfun-button">
+                    <div class="button-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="button-content">
+                        <div class="button-title">Buy on Pump.fun</div>
+                        <div class="button-subtitle">Launch platform</div>
+                    </div>
+                    <div class="button-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section community-section" id="community">
+        <div class="container">
+            <h2 class="section-title">Join Our Community</h2>
+            <p class="section-subtitle">Be part of the pod and help shape the future of BullWhale</p>
+            
+            <div class="join-community">
+                <div class="join-text">
+                    <h3>JOIN THE POD</h3>
+                    <p>Connect with other community members, get the latest updates, and participate in discussions that shape the future of BullWhale.</p>
+                </div>
+                <button class="join-button" id="joinButton">
+                    <span class="button-glow"></span>
+                    <span class="button-text">JOIN THE POD</span>
+                </button>
+            </div>
+            
+            <div class="social-links">
+                <a href="https://x.com/BullWhale_1" target="_blank" class="social-link">
+                    <div class="social-icon x-icon">
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                    <span class="social-text">X Profile</span>
+                </a>
+                
+                <a href="https://x.com/i/communities/2017689702510350746" target="_blank" class="social-link">
+                    <div class="social-icon x-community-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <span class="social-text">X Community</span>
+                </a>
+                
+                <a href="https://t.me/thebullish_whale" target="_blank" class="social-link">
+                    <div class="social-icon telegram-icon">
+                        <i class="fab fa-telegram"></i>
+                    </div>
+                    <span class="social-text">Telegram</span>
+                </a>
+                
+                <a href="https://www.facebook.com/share/1Bp3CSrV2c/?mibextid=wwXIfr" target="_blank" class="social-link">
+                    <div class="social-icon facebook-icon">
+                        <i class="fab fa-facebook"></i>
+                    </div>
+                    <span class="social-text">Facebook</span>
+                </a>
+            </div>
+            
+            <div class="contract-address">
+                <h3>Contract Address</h3>
+                <div class="address-container">
+                    <div class="address-input" id="contractAddress">
+                        6gH5aqXWb3nmDvYvFRCQv9L3eBhr9jhVN911cCxCpump
+                    </div>
+                    <button class="copy-button" id="copyButton">
+                        <i class="far fa-copy"></i>
+                        <span class="copy-tooltip" id="copyTooltip">Copy</span>
+                    </button>
+                </div>
+                <p class="address-note">This is the official BullWhale token contract address on Solana.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="logo.png" alt="Bullish Whale Logo" class="footer-logo-img">
+                    <span class="footer-logo-text">Bullish Whale</span>
+                </div>
+                <div class="footer-text">
+                    <p>A community-driven cryptocurrency project on Solana. Join the pod and be part of the revolution.</p>
+                    <p class="copyright">© 2026 Bullish Whale. All rights reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AI Chatbot -->
+    <div class="chatbot-container" id="chatbotContainer">
+        <div class="chatbot-header">
+            <div class="chatbot-title">
+                <i class="fas fa-robot"></i>
+                <h3>BullWhale Assistant</h3>
+            </div>
+            <button class="chatbot-close" id="closeChatbot">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="chatbot-messages" id="chatbotMessages">
+            <div class="chatbot-message bot-message">
+                <div class="message-content">
+                    <p>Hello! I'm the BullWhale assistant. I can answer questions about the project, tokenomics, roadmap, and more. How can I help you today?</p>
+                </div>
+            </div>
+        </div>
+        <div class="chatbot-input">
+            <input type="text" id="chatbotInput" placeholder="Ask me anything about BullWhale...">
+            <button id="sendMessage">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Chatbot Toggle Button -->
+    <button class="chatbot-toggle" id="toggleChatbot">
+        <i class="fas fa-robot"></i>
+        <span class="toggle-text">AI Assistant</span>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+  </html>
