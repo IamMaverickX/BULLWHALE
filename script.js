@@ -234,7 +234,7 @@ function initParticles() {
 
 // Scroll animations for elements
 function initScrollAnimations() {
-    const animatedElements = document.querySelectorAll('.timeline-item, .tokenomics-overview, .unlock-schedule, .chart-widget, .streamflow-widget, .buy-button, .join-community, .social-link, .contract-address');
+    const animatedElements = document.querySelectorAll('.timeline-item, .tokenomics-overview, .unlock-schedule, .chart-widget, .lock-info-card, .buy-button, .join-community, .social-link, .contract-address');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
